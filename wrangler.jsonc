@@ -1,0 +1,28 @@
+{
+  "name": "daoyiguan",
+  "compatibility_date": "2024-04-03",
+  "pages_build_output_dir": "./dist",
+  "vars": {
+    "RESEND_API_KEY": "re_eFHXcbL3_6Gs482hZnoes9t91oeBL7vwp",
+    "SITE_URL": "https://daoyiguan.pages.dev"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "daoyiguan_db",
+      "database_id": "cf81218c-665c-4e1c-b51f-03d275c1c295"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "MEDIA",
+      "bucket_name": "daoyiguan-media"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "SESSIONS",
+      "id": "2101f67d26f24aed9b5a3ac6de726d83"
+    }
+  ]
+}

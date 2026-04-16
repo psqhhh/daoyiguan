@@ -16,15 +16,16 @@
 		"typecheck": "astro check"
 	},
 	"dependencies": {
+		"@astrojs/cloudflare": "^13.1.10",
 		"@astrojs/node": "latest",
 		"@astrojs/react": "latest",
 		"astro": "latest",
 		"better-sqlite3": "latest",
+		"clsx": "latest",
 		"emdash": "latest",
+		"lucide-react": "latest",
 		"react": "latest",
 		"react-dom": "latest",
-		"lucide-react": "latest",
-		"clsx": "latest",
 		"tailwind-merge": "latest"
 	},
 	"devDependencies": {
