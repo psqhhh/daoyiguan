@@ -2,8 +2,8 @@
 	"$schema": "https://emdashcms.com/seed.schema.json",
 	"version": "1",
 	"meta": {
-		"name": "Alibaba Imported Herbs",
-		"description": "Herbs found from Alibaba suppliers for dropshipping",
+		"name": "Alibaba Imported Herbs - Batch 2",
+		"description": "Expanded list of herbs from Alibaba suppliers for dropshipping",
 		"author": "Coder"
 	},
 	"content": {
@@ -74,6 +74,126 @@
 								{
 									"_type": "span",
 									"text": "安徽亳州道地干姜，无硫熏蒸。温中散寒，回阳通脉，温肺化饮。"
+								}
+							]
+						}
+					]
+				}
+			},
+			{
+				"id": "alibaba-fuling-1",
+				"slug": "premium-poria-cocos-cubes",
+				"status": "published",
+				"data": {
+					"title": "特级茯苓块 (Poria Cocos Cubes)",
+					"pinyin": "Fu Ling",
+					"category": "利水渗湿药",
+					"origin": "安徽 (Anhui)",
+					"price_info": "$7.5 - $12.0 / kg",
+					"description": [
+						{
+							"_type": "block",
+							"_key": "b1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "安徽亳州道地茯苓，5A级品质，无硫。利水渗湿，健脾，宁心。"
+								}
+							]
+						}
+					]
+				}
+			},
+			{
+				"id": "alibaba-guizhi-1",
+				"slug": "premium-cinnamon-twig-gui-zhi",
+				"status": "published",
+				"data": {
+					"title": "特级桂枝 (Cinnamon Twig)",
+					"pinyin": "Gui Zhi",
+					"category": "解表药",
+					"origin": "广东/安徽 (Guangdong/Anhui)",
+					"price_info": "$1.8 - $2.5 / kg",
+					"description": [
+						{
+							"_type": "block",
+							"_key": "b1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "道地桂枝，香气浓郁，颗粒饱满。发汗解肌，温通经脉，助阳化气。"
+								}
+							]
+						}
+					]
+				}
+			},
+			{
+				"id": "alibaba-baishao-1",
+				"slug": "premium-white-peony-root",
+				"status": "published",
+				"data": {
+					"title": "特选白芍片 (White Peony Root Slices)",
+					"pinyin": "Bai Shao",
+					"category": "补血药",
+					"origin": "安徽亳州 (Anhui Bozhou)",
+					"price_info": "$10.0 - $15.0 / kg",
+					"description": [
+						{
+							"_type": "block",
+							"_key": "b1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "精选亳白芍，片型整齐，色泽洁白。养血调经，敛阴止汗，柔肝止痛，平抑肝阳。"
+								}
+							]
+						}
+					]
+				}
+			},
+			{
+				"id": "alibaba-gancao-1",
+				"slug": "premium-liquorice-root-slices",
+				"status": "published",
+				"data": {
+					"title": "特级甘草片 (Liquorice Root Slices)",
+					"pinyin": "Gan Cao",
+					"category": "补气药",
+					"origin": "内蒙古/甘肃 (Inner Mongolia/Gansu)",
+					"price_info": "$4.5 - $15.0 / kg",
+					"description": [
+						{
+							"_type": "block",
+							"_key": "b1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "精选大片甘草，无硫，味甘甜。补脾益气，清热解毒，祛痰止咳，缓急止痛，调和诸药。"
+								}
+							]
+						}
+					]
+				}
+			},
+			{
+				"id": "alibaba-chenpi-1",
+				"slug": "premium-aged-tangerine-peel",
+				"status": "published",
+				"data": {
+					"title": "正宗广陈皮 (Aged Tangerine Peel)",
+					"pinyin": "Chen Pi",
+					"category": "理气药",
+					"origin": "广东新会 (Guangdong Xinhui)",
+					"price_info": "$5.0 - $50.0 / box",
+					"description": [
+						{
+							"_type": "block",
+							"_key": "b1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "正宗新会陈皮，陈放多年，药香浓郁。理气健脾，燥湿化痰。"
 								}
 							]
 						}
