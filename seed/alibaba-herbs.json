@@ -1,0 +1,85 @@
+{
+	"$schema": "https://emdashcms.com/seed.schema.json",
+	"version": "1",
+	"meta": {
+		"name": "Alibaba Imported Herbs",
+		"description": "Herbs found from Alibaba suppliers for dropshipping",
+		"author": "Coder"
+	},
+	"content": {
+		"herbs": [
+			{
+				"id": "alibaba-ginseng-1",
+				"slug": "premium-panax-ginseng-root",
+				"status": "published",
+				"data": {
+					"title": "特级长白山人参 (Panax Ginseng Root)",
+					"pinyin": "Ren Shen",
+					"category": "补气药",
+					"origin": "吉林 (Jilin)",
+					"price_info": "$30.0 - $55.0 / kg",
+					"description": [
+						{
+							"_type": "block",
+							"_key": "b1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "100% 有机长白山人参。适用于大补元气，复脉固脱，补脾益肺，生津养血，安神益智。"
+								}
+							]
+						}
+					]
+				}
+			},
+			{
+				"id": "alibaba-huangqi-1",
+				"slug": "premium-astragalus-membranaceus",
+				"status": "published",
+				"data": {
+					"title": "特等内蒙古黄芪片 (Astragalus Slices)",
+					"pinyin": "Huang Qi",
+					"category": "补气药",
+					"origin": "内蒙古 (Inner Mongolia)",
+					"price_info": "$14.0 - $23.0 / kg",
+					"description": [
+						{
+							"_type": "block",
+							"_key": "b1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "精选内蒙古道地黄芪，斜片切割，品质上乘。补气升阳，固表止汗，利水消肿，生津养血。"
+								}
+							]
+						}
+					]
+				}
+			},
+			{
+				"id": "alibaba-ganjiang-1",
+				"slug": "dried-ginger-slices-ganjiang",
+				"status": "published",
+				"data": {
+					"title": "高品质干姜片 (Dried Ginger Slices)",
+					"pinyin": "Gan Jiang",
+					"category": "温里药",
+					"origin": "安徽 (Anhui)",
+					"price_info": "$7.5 - $9.5 / kg",
+					"description": [
+						{
+							"_type": "block",
+							"_key": "b1",
+							"children": [
+								{
+									"_type": "span",
+									"text": "安徽亳州道地干姜，无硫熏蒸。温中散寒，回阳通脉，温肺化饮。"
+								}
+							]
+						}
+					]
+				}
+			}
+		]
+	}
+}

@@ -13,6 +13,7 @@
 		"start": "node ./dist/server/entry.mjs",
 		"bootstrap": "emdash init && emdash seed",
 		"seed": "emdash seed",
+		"seed:alibaba": "emdash seed seed/alibaba-herbs.json",
 		"typecheck": "astro check"
 	},
 	"dependencies": {
