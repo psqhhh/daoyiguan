@@ -1,0 +1,145 @@
+---
+import Base from "../layouts/Base.astro";
+import { ContentRepository } from "emdash";
+
+let success = false;
+let error = null;
+
+if (Astro.request.method === "POST") {
+  try {
+    const formData = await Astro.request.formData();
+    const name = formData.get("name")?.toString();
+    const email = formData.get("email")?.toString();
+    const subject = formData.get("subject")?.toString();
+    const message = formData.get("message")?.toString();
+
+    if (!name || !email || !subject || !message) {
+      throw new Error("请填写所有必填字段。");
+    }
+
+    // Create entry in EmDash 'inquiries' collection
+    const repo = new ContentRepository();
+    await repo.create({
+      collection: "inquiries",
+      status: "published", // This triggers the plugin
+      data: {
+        title: subject,
+        name,
+        email,
+        message,
+      },
+    });
+
+    success = true;
+  } catch (e: any) {
+    error = e.message;
+  }
+}
+---
+
+<Base title="联系我们">
+  <section class="section">
+    <div class="container contact-container">
+      <div class="contact-header">
+        <h1>联系我们</h1>
+        <p>如果您对我们的中药材或经方有任何疑问，请填写下方表格，我们会尽快回复。</p>
+      </div>
+
+      {success ? (
+        <div class="success-message">
+          <h2>提交成功！</h2>
+          <p>感谢您的咨询，我们会尽快与您取得联系。</p>
+          <a href="/" class="btn btn-primary">返回首页</a>
+        </div>
+      ) : (
+        <form method="POST" class="contact-form">
+          {error && <div class="error-message">{error}</div>}
+          
+          <div class="form-group">
+            <label for="name">姓名 *</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">电子邮箱 *</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="subject">咨询主题 *</label>
+            <input type="text" id="subject" name="subject" required placeholder="例如：人参采购咨询" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">咨询内容 *</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg">提交询盘</button>
+        </form>
+      )}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .contact-container {
+    max-width: 600px !important;
+  }
+
+  .contact-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+  }
+
+  .contact-header h1 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    background: var(--color-surface);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .form-group label {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: var(--spacing-md);
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    font-family: inherit;
+    font-size: var(--font-size-base);
+  }
+
+  .success-message {
+    text-align: center;
+    padding: var(--spacing-3xl);
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: var(--radius-lg);
+  }
+
+  .error-message {
+    padding: var(--spacing-md);
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+    border-radius: var(--radius);
+  }
+</style>

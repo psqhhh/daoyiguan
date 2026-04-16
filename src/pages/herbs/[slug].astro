@@ -1,0 +1,123 @@
+---
+import { getEmDashEntry, getEmDashCollection } from "emdash";
+import Base from "../../layouts/Base.astro";
+import { PortableText } from "astro-portabletext";
+
+export async function getStaticPaths() {
+	const { entries } = await getEmDashCollection("herbs");
+	return entries.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+---
+
+<Base title={entry.data.title}>
+  <article class="herb-detail">
+    <div class="container hero">
+      <div class="header">
+        <h1>{entry.data.title}</h1>
+        <p class="pinyin">{entry.data.pinyin}</p>
+        <div class="meta">
+          <span class="category">{entry.data.category}</span>
+          <span class="origin">产地：{entry.data.origin}</span>
+        </div>
+      </div>
+      
+      <div class="content-wrapper">
+        <section class="info-card">
+          <h2>规格与价格</h2>
+          <p>{entry.data.price_info}</p>
+          <a href="/contact" class="btn btn-primary btn-lg">立即咨询询盘</a>
+        </section>
+
+        <section class="description">
+          <h2>详细描述</h2>
+          <div class="portable-text">
+            <PortableText value={entry.data.description} />
+          </div>
+        </section>
+      </div>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .hero {
+    padding: var(--spacing-5xl) var(--spacing-lg);
+  }
+
+  .header {
+    margin-bottom: var(--spacing-4xl);
+  }
+
+  .header h1 {
+    font-size: var(--font-size-6xl);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .pinyin {
+    font-size: var(--font-size-xl);
+    color: var(--color-muted);
+    font-style: italic;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .meta {
+    display: flex;
+    gap: var(--spacing-lg);
+    font-size: var(--font-size-base);
+  }
+
+  .category {
+    background: var(--color-primary-light);
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-full);
+  }
+
+  .content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--spacing-4xl);
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .content-wrapper {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .info-card {
+    background: var(--color-surface);
+    padding: var(--spacing-2xl);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    position: sticky;
+    top: calc(var(--spacing-md) + 64px);
+  }
+
+  .info-card h2 {
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-xl);
+  }
+
+  .info-card p {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .description h2 {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .portable-text {
+    font-size: var(--font-size-lg);
+    line-height: 1.8;
+  }
+</style>

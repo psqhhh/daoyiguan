@@ -1,0 +1,101 @@
+---
+import { getEmDashCollection } from "emdash";
+import Base from "../../layouts/Base.astro";
+
+const { entries: herbs } = await getEmDashCollection("herbs");
+---
+
+<Base title="中药材">
+  <section class="section">
+    <div class="container">
+      <div class="header-section">
+        <h1>道地中药材</h1>
+        <p>精选全国各产区优质药材，严格质控，道地传承。</p>
+      </div>
+
+      <div class="grid">
+        {herbs.map((herb) => (
+          <article class="card">
+            <div class="card-content">
+              <h3>{herb.data.title}</h3>
+              <div class="meta">
+                <span class="pinyin">{herb.data.pinyin}</span>
+                <span class="category">{herb.data.category}</span>
+              </div>
+              <p>产地：{herb.data.origin}</p>
+              <p class="price">{herb.data.price_info}</p>
+              <a href={`/herbs/${herb.slug}`} class="btn btn-secondary">查看详情</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .header-section {
+    text-align: center;
+    margin-bottom: var(--spacing-4xl);
+  }
+
+  .header-section h1 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+  }
+
+  .card {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .card-content {
+    padding: var(--spacing-xl);
+  }
+
+  .card-content h3 {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .meta {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-sm);
+    color: var(--color-muted);
+  }
+
+  .pinyin {
+    font-style: italic;
+  }
+
+  .category {
+    background: var(--color-primary-light);
+    color: white;
+    padding: 0 var(--spacing-xs);
+    border-radius: var(--radius-sm);
+  }
+
+  .price {
+    font-weight: 700;
+    color: var(--color-accent);
+    margin: var(--spacing-md) 0;
+  }
+
+  .btn {
+    width: 100%;
+  }
+</style>

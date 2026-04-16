@@ -1,0 +1,130 @@
+{
+	"$schema": "https://emdashcms.com/seed.schema.json",
+	"version": "1",
+	"meta": {
+		"name": "DaoYiGuan TCM Starter",
+		"description": "A site for selling classical Chinese medicine (经方中药材)",
+		"author": "Coder"
+	},
+	"settings": {
+		"title": "道医馆 - 经方中药材",
+		"tagline": "道地药材，传承经方"
+	},
+	"collections": [
+		{
+			"slug": "pages",
+			"label": "页面",
+			"labelSingular": "页面",
+			"supports": ["drafts", "revisions", "seo"],
+			"fields": [
+				{ "slug": "title", "label": "标题", "type": "string", "required": true },
+				{ "slug": "content", "label": "内容", "type": "portableText" }
+			]
+		},
+		{
+			"slug": "herbs",
+			"label": "中药材",
+			"labelSingular": "中药材",
+			"supports": ["drafts", "revisions", "seo"],
+			"fields": [
+				{ "slug": "title", "label": "名称", "type": "string", "required": true },
+				{ "slug": "pinyin", "label": "拼音", "type": "string" },
+				{ "slug": "category", "label": "分类", "type": "string" },
+				{ "slug": "origin", "label": "产地", "type": "string" },
+				{ "slug": "description", "label": "描述", "type": "portableText" },
+				{ "slug": "price_info", "label": "价格说明", "type": "string" }
+			]
+		},
+		{
+			"slug": "formulas",
+			"label": "经方",
+			"labelSingular": "经方",
+			"supports": ["drafts", "revisions", "seo"],
+			"fields": [
+				{ "slug": "title", "label": "方名", "type": "string", "required": true },
+				{ "slug": "source", "label": "出处", "type": "string" },
+				{ "slug": "ingredients", "label": "组成", "type": "string" },
+				{ "slug": "indications", "label": "主治", "type": "portableText" }
+			]
+		},
+		{
+			"slug": "articles",
+			"label": "文章",
+			"labelSingular": "文章",
+			"supports": ["drafts", "revisions", "seo"],
+			"fields": [
+				{ "slug": "title", "label": "标题", "type": "string", "required": true },
+				{ "slug": "content", "label": "内容", "type": "portableText" },
+				{ "slug": "author", "label": "作者", "type": "string" }
+			]
+		}
+	],
+	"menus": [
+		{
+			"name": "primary",
+			"label": "主导航",
+			"items": [
+				{ "type": "custom", "label": "首页", "url": "/" },
+				{ "type": "custom", "label": "中药材", "url": "/herbs" },
+				{ "type": "custom", "label": "经方方剂", "url": "/formulas" },
+				{ "type": "custom", "label": "经方知识", "url": "/articles" },
+				{ "type": "custom", "label": "联系我们", "url": "/contact" }
+			]
+		}
+	],
+	"content": {
+		"pages": [
+			{
+				"id": "home",
+				"slug": "home",
+				"status": "published",
+				"data": {
+					"title": "首页",
+					"content": [
+						{
+							"_type": "marketing.hero",
+							"_key": "hero",
+							"headline": "道地药材，传承经方",
+							"subheadline": "专注高品质经方中药材供应，助力中医临床与研究。",
+							"primaryCta": { "label": "浏览药材", "url": "/herbs" },
+							"secondaryCta": { "label": "了解经方", "url": "/formulas" }
+						}
+					]
+				}
+			}
+		],
+		"herbs": [
+			{
+				"id": "renshen",
+				"slug": "renshen",
+				"status": "published",
+				"data": {
+					"title": "人参",
+					"pinyin": "Ren Shen",
+					"category": "补气药",
+					"origin": "吉林",
+					"price_info": "电议"
+				}
+			}
+		],
+		"formulas": [
+			{
+				"id": "guizhitang",
+				"slug": "guizhitang",
+				"status": "published",
+				"data": {
+					"title": "桂枝汤",
+					"source": "伤寒论",
+					"ingredients": "桂枝、芍药、甘草、生姜、大枣",
+					"indications": [
+						{
+							"_type": "block",
+							"_key": "b1",
+							"children": [{ "_type": "span", "text": "外感风寒表虚证。" }]
+						}
+					]
+				}
+			}
+		]
+	}
+}

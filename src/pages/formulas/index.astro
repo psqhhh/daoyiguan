@@ -1,0 +1,91 @@
+---
+import { getEmDashCollection } from "emdash";
+import Base from "../../layouts/Base.astro";
+
+const { entries: formulas } = await getEmDashCollection("formulas");
+---
+
+<Base title="经方方剂">
+  <section class="section">
+    <div class="container">
+      <div class="header-section">
+        <h1>经典名方</h1>
+        <p>收录《伤寒论》、《金匮要略》等中医经典方剂，严谨考究。</p>
+      </div>
+
+      <div class="grid">
+        {formulas.map((formula) => (
+          <article class="card">
+            <div class="card-content">
+              <h3>{formula.data.title}</h3>
+              <p class="source">出处：{formula.data.source}</p>
+              <div class="ingredients">
+                <strong>组成：</strong> {formula.data.ingredients}
+              </div>
+              <a href={`/formulas/${formula.slug}`} class="btn btn-secondary">方解详情</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .header-section {
+    text-align: center;
+    margin-bottom: var(--spacing-4xl);
+  }
+
+  .header-section h1 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-xl);
+  }
+
+  .card {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-primary);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .card-content {
+    padding: var(--spacing-xl);
+  }
+
+  .card-content h3 {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .source {
+    font-size: var(--font-size-sm);
+    color: var(--color-muted);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .ingredients {
+    margin-bottom: var(--spacing-xl);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+  }
+
+  .ingredients strong {
+    color: var(--color-primary-dark);
+  }
+
+  .btn {
+    width: 100%;
+  }
+</style>
